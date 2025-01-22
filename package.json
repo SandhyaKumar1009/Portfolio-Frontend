@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile:scss": "node-sass sass/main.scss css/style.css -w",
+    "compile:scss": "sass --watch sass/main.scss css/style.css",  
     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.css -o css/style.css",
-    "compress:css": "node-sass css/style.css css/style.css --output-style compressed",
+    "compress:css": "sass css/style.css css/style.css --style=compressed",  
     "build": "npm-run-all prefix:css compress:css"
   },
   "author": "",
@@ -17,6 +17,6 @@
     "postcss-cli": "^8.3.1"
   },
   "dependencies": {
-    "sass": "^1.83.4"
+    "sass": "^1.83.4" 
   }
 }
