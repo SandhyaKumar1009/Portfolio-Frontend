@@ -6,15 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Case Study of Form Buddy</title>
     <meta name="description" content="Case study page of Form Buddy" />
-
     <link rel="stylesheet" href="css/style.css" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
       rel="stylesheet"
     />
+    <style>
+      /* Slideshow Container */
+      .slideshow-container {
+        position: relative;
+        max-width: 100%;
+        margin: auto;
+      }
+
+      /* Hide images by default */
+      .mySlides {
+        display: none;
+      }
+
+      /* Fade effect for images */
+      .fade {
+        animation-name: fadeEffect;
+        animation-duration: 2s;
+      }
+
+      @keyframes fadeEffect {
+        from { opacity: 0.4 }
+        to { opacity: 1 }
+      }
+    </style>
   </head>
   <body>
     <header class="header">
@@ -95,11 +117,18 @@
       <div class="main-container">
         <div class="project-details__content">
           <div class="project-details__showcase-img-cont">
-            <img
-              src="./assets/jpeg/form-buddy-mockup.jpeg"
-              alt="Form Buddy Screenshot"
-              class="project-details__showcase-img"
-            />
+            <!-- Slide Show Container -->
+            <div class="slideshow-container">
+              <div class="mySlides fade">
+                <img src="./assets/jpeg/project11.jpeg" alt="Project Image 1" class="project-details__showcase-img" />
+              </div>
+              <div class="mySlides fade">
+                <img src="./assets/jpeg/project12.jpeg" alt="Project Image 2" class="project-details__showcase-img" />
+              </div>
+              <div class="mySlides fade">
+                <img src="./assets/jpeg/project13.jpeg" alt="Project Image 3" class="project-details__showcase-img" />
+              </div>
+            </div>
           </div>
           <div class="project-details__content-main">
             <div class="project-details__desc">
@@ -155,21 +184,21 @@
               <span>Social</span>
             </h2>
             <div class="main-footer__social-cont">
-              <a target="_blank" rel="noreferrer" href="#">
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/sandhya-kumar-914892291/">
                 <img
                   class="main-footer__icon"
                   src="./assets/png/linkedin-ico.png"
                   alt="LinkedIn Icon"
                 />
               </a>
-              <a target="_blank" rel="noreferrer" href="#">
+              <a target="_blank" rel="noreferrer" href="https://github.com/SandhyaKumar1009">
                 <img
                   class="main-footer__icon"
                   src="./assets/png/github-ico.png"
                   alt="GitHub Icon"
                 />
               </a>
-              <a target="_blank" rel="noreferrer" href="#">
+              <a target="_blank" rel="noreferrer" href="https://www.instagram.com/_.sandhya._005?igsh=YWpuZHd1a3FmZm91">
                 <img
                   class="main-footer__icon main-footer__icon--mr-none"
                   src="./assets/png/insta-ico.png"
@@ -195,6 +224,22 @@
         </div>
       </div>
     </footer>
-    <script src="./index.js"></script>
+    <script>
+      // JavaScript for slideshow
+      let slideIndex = 0;
+
+      function showSlides() {
+        let slides = document.getElementsByClassName("mySlides");
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+      }
+
+      showSlides(); // Start the slideshow
+    </script>
   </body>
 </html>
